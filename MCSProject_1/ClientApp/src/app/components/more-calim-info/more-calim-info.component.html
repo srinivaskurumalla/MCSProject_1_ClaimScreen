@@ -1,0 +1,44 @@
+<table class="table table-bordered border-primary mt-4">
+  <thead>
+    <tr class="bg-info">
+      <td>EntFirstName</td>
+      <td>ClmHdrRecLocator</td>
+      <td>ClaimNumber</td>
+      <td>ControlNumber</td>
+      <td>EntityType</td>
+      <td>EntSortOrder</td>
+      <!-- <td>Member Name</td>
+      <td>Provider Id</td>
+      <td>Provider Name</td>
+      <td>Vendor Name</td>
+      <td>Date Received</td>
+      <td class="text-danger">Total Charges</td>
+      <td class="text-danger">Paid Amount</td> -->
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="searchedClaim.length > 0">
+      <tr *ngFor="let claim of searchedClaim" class="table-active">
+        <td ><a href="">{{ claim.chEntFirstName }} </a></td>
+        <td>{{ claim.chClmHdrRecLocator }}</td>
+        <td>{{ claim.decClaimNumber }}</td>
+        <td>{{ claim.chControlNumber }}</td>
+        <td>{{ claim.chEntityType }}</td>
+        <td>{{ claim.intEntSortOrder }}</td>
+
+        <!-- <td>{{ claim.ProviderId }}</td>
+        <td>{{ claim.ProviderName }}</td>
+        <td>{{ claim.VendorName }}</td>
+        <td>{{ claim.DateReceived }}</td>
+        <td>{{ claim.TotalCharges }}</td>
+        <td>{{ claim.AmountPaid }}</td> -->
+      </tr>
+
+    </ng-container>
+    <ng-container *ngIf="searchedClaim.length === 0">
+      <tr>
+        <td colspan="12">No claims found in database</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

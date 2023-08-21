@@ -1,0 +1,66 @@
+<div class="border">
+  <!-- row-1 -->
+  <div class="d-flex m-2">
+    <form [formGroup]="claimSearchForm" (ngSubmit)="passClaimIdToChild_MoreClaimInfo()">
+      <div class="d-flex"> <!-- Use flexbox to align items horizontally -->
+        <b class="m-2">Claim Number:</b>
+        <div  class="input-field"
+        [class.error]="formSubmitted && claimSearchForm.get('claimId')?.invalid && claimSearchForm.get('claimId')?.errors?.['required']"
+     >
+     <input type="text" class="form-control "  formControlName="claimId"/>
+
+        </div>
+        <mat-icon>submit</mat-icon>
+        <button type="submit"  class="btn btn-primary searchButton"  [disabled]="claimSearchForm.invalid">search</button>
+        <b class="m-2">Member:</b>
+        <input readonly class="form-control" />
+      </div>
+
+    </form>
+  </div>
+
+  <!-- row-2 -->
+
+  <div class="ms-2 me-2">
+    <div class="date">
+      Date :
+      <b>
+        {{ todays_date | date }}
+      </b>
+    </div>
+  </div>
+  <!-- row-3 -->
+  <div class="d-flex justify-content-end">
+    <div>hello</div>
+    <p class="ml-auto">Today's date: {{ todays_date | date : "fullDate" }}</p>
+  </div>
+
+  <!-- row-3 -->
+  <!-- <mat-tab-group fitInkBarToContent>
+      <mat-tab label="First">Content 1</mat-tab>
+      <mat-tab label="Second">Content 2</mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+      <mat-tab label="Fourth" disabled>Content 4</mat-tab>
+    </mat-tab-group> -->
+  <div class="d-flex justify-content-end">
+    <section>
+      <div class="example-button-row">
+        <button style="margin: 10px;" mat-raised-button>Basic</button>
+        <button style="margin: 10px;" mat-raised-button color="primary">Forward</button>
+        <button style="margin: 10px;"  mat-raised-button color="accent">Reverse</button>
+        <button style="margin: 10px;"  mat-raised-button disabled>Deny Claim</button>
+        <button style="margin: 10px;"  mat-raised-button color="warn">Lock</button>
+        <button style="margin: 10px;"  mat-raised-button disabled>Hold</button>
+        <button style="margin: 10px;"  mat-raised-button disabled>Adjudicate</button>
+        <button style="margin: 10px;" mat-raised-button color="primary">View Claims</button>
+        <button style="margin: 10px;" mat-raised-button color="primary">Edit</button>
+
+
+        <!-- <a mat-raised-button href="https://www.google.com/" target="_blank"
+          >Link</a -->
+
+      </div>
+    </section>
+  </div>
+</div>
+<app-more-calim-info [claimId]="claimId"   *ngIf="formSubmitted"></app-more-calim-info>
