@@ -19,7 +19,9 @@
   <tbody>
     <ng-container *ngIf="searchedClaim.length > 0">
       <tr *ngFor="let claim of searchedClaim" class="table-active">
-        <td ><a href="">{{ claim.chEntFirstName }} </a></td>
+        <td>
+          <a href="">{{ claim.chEntFirstName }} </a>
+        </td>
         <td>{{ claim.chClmHdrRecLocator }}</td>
         <td>{{ claim.decClaimNumber }}</td>
         <td>{{ claim.chControlNumber }}</td>
@@ -33,12 +35,238 @@
         <td>{{ claim.TotalCharges }}</td>
         <td>{{ claim.AmountPaid }}</td> -->
       </tr>
-
     </ng-container>
     <ng-container *ngIf="searchedClaim.length === 0">
       <tr>
-        <td colspan="12">No claims found in database</td>
+        <td colspan="6" style="text-align: center">
+          No claims found in database
+        </td>
       </tr>
     </ng-container>
   </tbody>
 </table>
+
+<div class="container">
+  <!-- row-1 -->
+  <div class="row">
+    <!-- col-1 -->
+    <div class="col-3">
+      <div class="d-flex">
+        <p>Claim Number:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+
+      <div class="d-flex">
+        <p>LOB:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+      <div class="d-flex">
+        <p>Illness Date:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+      <div class="d-flex">
+        <p>Disabled From:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+    </div>
+    <!-- col-2 -->
+
+    <div class="col-3">
+      <div class="d-flex">
+        <p><b>Member Name, Member Name</b></p>
+        <!-- <input type="text" class="form-control txtBox"/> -->
+      </div>
+      <div class="d-flex">
+        <p>From DOS:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+
+      <div class="d-flex">
+        <p>First Illness Date:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+      <div class="d-flex">
+        <p>Disabled To:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+      <div class="d-flex">
+        <p>Origin Ref #:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+    </div>
+    <!-- col-3 -->
+
+    <div class="col-3">
+      <div class="d-flex">
+        <p>DOB:</p>
+        <b>{{ currentDay | date : "yyyy-MM-dd" }}</b>
+      </div>
+      <div class="d-flex">
+        <p>Through DOS:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+      <div class="d-flex">
+        <p>LMP Data:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+
+      <div class="d-flex">
+        <p>Admit Date:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+
+      <div class="d-flex">
+        <p>Toal Charges:</p>
+        <input
+          type="text"
+          disabled
+          [value]="1000"
+          class="form-control txtBox"
+        />
+      </div>
+    </div>
+    <!-- col-4 -->
+
+    <div class="col-3">
+      <div class="d-flex">
+        <p>Determination:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+
+      <div class="d-flex">
+        <p>Injury Date:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+
+      <div class="d-flex">
+        <p>Discharge Date:</p>
+        <input
+          type="date"
+          [value]="currentDay | date : 'yyyy-MM-dd'"
+          disabled
+          class="form-control txtBox"
+        />
+      </div>
+      <div class="d-flex">
+        <p>Other Ins Pd:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+      <div class="d-flex">
+        <p>OI Claim Type:</p>
+        <input type="text" class="form-control txtBox" />
+      </div>
+    </div>
+  </div>
+   <!-- row-2 -->
+  <div class="row">
+  <!-- col-1 -->
+  <div class="col-3">
+    <div class="d-flex">
+      <p>Serv Prov:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+
+    <div class="d-flex">
+      <p>Serv Loc:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+    <div class="d-flex">
+      <p>Serv Taxnmy:</p>
+      <input
+        type="date"
+        [value]="currentDay | date : 'yyyy-MM-dd'"
+        disabled
+        class="form-control txtBox"
+      />
+    </div>
+    <div class="d-flex">
+      <p>Facility NPI:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+
+    <div class="d-flex">
+      <p>Refer Prov:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+
+    <div class="d-flex">
+      <p>Vendor ID:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+    <div class="d-flex">
+      <p>Vendor Loc:</p>
+      <input
+        type="date"
+        [value]="currentDay | date : 'yyyy-MM-dd'"
+        disabled
+        class="form-control txtBox"
+      />
+    </div>
+    <div class="d-flex">
+      <p>Bill Taxnmy:</p>
+      <input type="text" class="form-control txtBox" />
+    </div>
+
+  </div>
+  <!-- col-2 -->
+  <div class="col-3">
+    <div class="d-flex">
+      <p><b>RAPCIAK,Yoscany</b></p>
+
+    </div>
+
+    <div class="d-flex">
+      <p style="height: 20px;"> </p>
+    </div>
+    <div class="d-flex">
+      <p style="height: 20px;"> </p>
+    </div>
+    <div class="d-flex">
+      <p style="height: 20px;"> </p>
+
+    </div>
+
+    <div class="d-flex">
+      <p><b>VASQUEZ-DOMINGO</b></p>
+    </div>
+
+    <div class="d-flex">
+      <p><b style="text-align: left;">CENTRAL ILLINOIS PATHOLOGY <br> PO Box 9190</b></p>
+    </div>
+    <div class="d-flex">
+      <p><b>PERORIA, Il 61612-9190</b></p>
+    </div>
+    <div class="d-flex">
+      <p style="height: 20px;"> </p>
+
+    </div>
+
+  </div>
+    <div class="col-6 "></div>
+  </div>
+</div>

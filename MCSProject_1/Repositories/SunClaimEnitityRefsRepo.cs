@@ -18,7 +18,7 @@ namespace MCSProject_1.Repositories
             return await _dbContext.SunClaimEntityRefs.ToListAsync();
         }
 
-        public async Task<SunClaimEntityRef?> GetClaimById(int id)
+        public async Task<SunClaimEntityRef?> GetClaimById(decimal id)
         {
             var claim = await _dbContext.SunClaimEntityRefs.FirstOrDefaultAsync(u => u.DecClaimNumber == id);
 

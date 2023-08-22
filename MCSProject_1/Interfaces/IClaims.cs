@@ -3,7 +3,7 @@
     public interface IClaims<T> where T : class
     {
         Task<IEnumerable<T>> GetAll();
-        Task<T?> GetClaimById(int id);
+        Task<T?> GetClaimById(decimal id);
 
     }
 }

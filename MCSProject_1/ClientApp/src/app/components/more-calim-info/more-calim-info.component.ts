@@ -10,16 +10,18 @@ export class MoreCalimInfoComponent implements OnInit {
 
   @Input() claimId!: number;
   constructor(private _dbService: DbService) { }
-  searchedClaim: any = {};
+  searchedClaim: any = [];
 
+  currentDay = new Date();
   ngOnInit() {
 
+    //this.performSearch(this.claimId);
   }
 
   ngOnChanges(changes: SimpleChanges) {
     //console.log(changes)
 
-    if (changes.claimId) { // && !changes.claimId.firstChange
+    if (changes.claimId ) { // && !changes.claimId.firstChange
       const newClaimId = changes.claimId.currentValue;
       this.performSearch(newClaimId);
     }
@@ -28,16 +30,23 @@ export class MoreCalimInfoComponent implements OnInit {
     if (this.searchedClaim.length !== 0) {
       this.searchedClaim = []
     }
+    debugger
     this._dbService.getSunClaimEntityRefById(claimId).subscribe(
+
       (res: any) => {
-        this.searchedClaim.push(res);
-        console.log(this.searchedClaim);
+        if (res != null) {
+          this.searchedClaim.push(res);
+          console.log(this.searchedClaim);
+
+      }
 
       },
       (err: any) => {
         console.log(err);
       }
     );
+
   }
+
 
 }

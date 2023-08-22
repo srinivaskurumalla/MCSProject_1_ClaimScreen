@@ -23,7 +23,7 @@ namespace MCSProject_1.Controllers
             return Ok(allClaims);
         }
         [HttpGet("GetClaimById/{claimId}")]
-        public async Task<IActionResult> GetSunClaimEntityRefById(int claimId)
+        public async Task<IActionResult> GetSunClaimEntityRefById(decimal claimId)
         {
             var claim = await _sunClaimEntityRefRepo.GetClaimById(claimId);
             return Ok(claim);
