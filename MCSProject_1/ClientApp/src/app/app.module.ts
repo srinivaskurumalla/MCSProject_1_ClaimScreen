@@ -21,7 +21,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 
 import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatDividerModule,
     MatButtonModule,
-    
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
 
